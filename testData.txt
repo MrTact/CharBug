@@ -1,0 +1,4 @@
+
+// Test line that should munge up the first line
+Short line
+This line should munge the preceding one
