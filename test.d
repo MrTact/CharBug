@@ -1,18 +1,24 @@
 
 import std.stdio;
 
-auto testData = ["\r\n", "// This is a long comment"];
-
 void main() 
 {
-	char[][] outBuf;
+	string[] outBuf;
 	auto f = File("testData.txt", "r");
 	char[] buf;
 
+	writeln("\n**** RAW OUTPUT *****");
+
 	while (f.readln(buf))
 	{
-		outBuf ~= buf;
+		write(buf);
+		outBuf ~= buf.idup;
 	}
 
-	writeln(outBuf);
+	writeln("\n**** BUFFERED OUTPUT *****");
+
+	foreach (line; outBuf)
+	{
+		write(line);
+	}
 }
